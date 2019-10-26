@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ListView
-                    android:id="@+id/course_list"
+                    android:id="@+id/module_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </ListView>
@@ -41,7 +41,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="150dp"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/plus" />
             </RelativeLayout>

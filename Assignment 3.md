@@ -19,7 +19,7 @@ It is up to you as a developer to determine the type of these fields. This infor
 
 - User should be able to click on any course to receive additional information for each course, which will display all the fields specified in 1. Clicking 'Back' should take user back to the list.对列表实现点击事件的监听，监听点击事件之后，允许使用者对点击的课程做出修改
 
-- User should be able to remove any course previously entered to the app. Removal should present a confirmation dialogue to confirm the module information removal. Removing module information should delete this from the permanent storage, so it cannot appear again.
+- User should be able to remove any course previously entered to the app. Removal should present a confirmation dialogue to confirm the module information removal. Removing module information should delete this from the permanent storage, so it cannot appear again 删除List Item
 
 - Do not forget - the usual rules apply: your app should work on all two different types of phone
 Typical phone: Nexus S (4", 480x800, hdpi)

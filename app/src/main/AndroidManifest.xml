@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/timetable"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PreferenceActivity"></activity>
+        <activity android:name=".ModuleChangeActivity"></activity>
+        <activity android:name=".PreferenceActivity" />
         <activity android:name=".AddModuleActivity" />
         <activity android:name=".ModuleInformationActivity" />
         <activity

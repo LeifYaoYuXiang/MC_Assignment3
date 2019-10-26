@@ -110,7 +110,8 @@
                 android:id="@+id/chooseWeek"
                 android:layout_width="240dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"></Spinner>
+                android:layout_marginTop="10dp"
+                android:entries="@array/week"></Spinner>
 
             <Button
                 android:id="@+id/startTime"
@@ -162,7 +163,7 @@
 
 
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/saveModule"
         android:text="Save this Module"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
