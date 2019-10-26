@@ -9,7 +9,12 @@
         android:roundIcon="@drawable/timetable"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".PreferenceActivity"></activity>
+        <activity android:name=".AddModuleActivity" />
+        <activity android:name=".ModuleInformationActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
