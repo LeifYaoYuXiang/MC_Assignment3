@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +16,6 @@
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorPrimary"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         </android.support.v7.widget.Toolbar>
 
@@ -29,7 +29,9 @@
                 <ListView
                     android:id="@+id/module_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:divider="?list_divider"
+                    android:dividerHeight="1px">
                 </ListView>
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/add_modules"
@@ -41,7 +43,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="150dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/plus" />
             </RelativeLayout>

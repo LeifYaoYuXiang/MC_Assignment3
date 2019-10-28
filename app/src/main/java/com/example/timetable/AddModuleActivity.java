@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,11 @@ public class AddModuleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences=getSharedPreferences("themePre",MODE_PRIVATE);
+        int themeID=sharedPreferences.getInt("themeID",-1);
+        setTheme(themeID);
+
         setContentView(R.layout.activity_add_module);
         startTime=findViewById(R.id.startTime);
         endTime=findViewById(R.id.endTime);
@@ -99,7 +105,6 @@ public class AddModuleActivity extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
 
@@ -145,7 +150,6 @@ public class AddModuleActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 lecture=b;
-                Toast.makeText(AddModuleActivity.this, ""+lecture, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -227,6 +231,7 @@ public class AddModuleActivity extends AppCompatActivity {
                     }
                     contentValues.put("NotificationTime",earlierTime);
                     sqLiteDatabase.insert("Module",null,contentValues);
+                    sqLiteDatabase.close();
                     Toast.makeText(AddModuleActivity.this, "Make One Module Successfully", Toast.LENGTH_SHORT).show();
                     onBackPressed();
                 }else{

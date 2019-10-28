@@ -34,12 +34,9 @@ public class ModuleAdapter extends ArrayAdapter<Module> {
         int hour=module.getStartHour();
         int minute=module.getStartMinute();
         String week=module.getWeek();
-
         textView2.setText(week+","+hour+":"+minute);
         TextView textView3 = view.findViewById(R.id.position_item);
         textView3.setText(module.getLocation());
-
-
         return view;
     }
 }

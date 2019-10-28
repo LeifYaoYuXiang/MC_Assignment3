@@ -2,6 +2,7 @@ package com.example.timetable;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
@@ -37,33 +38,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar=findViewById(R.id.toolBar);
-        moduleListView=findViewById(R.id.module_list);
-
-        setSupportActionBar(toolbar);
-        mPullToRefreshView = this.findViewById(R.id.pull_to_refresh);
-        mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPullToRefreshView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mPullToRefreshView.setRefreshing(false);
-                    }
-                }, 2000);
-            }
-        });
-        FloatingActionButton floatingActionButton=findViewById(R.id.add_modules);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,AddModuleActivity.class);
-                startActivity(intent);
-            }
-        });
-        ModuleOpenHelper moduleOpenHelper=new ModuleOpenHelper(this,"Module.db",null,2);
-
     }
 
     @Override
@@ -71,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.setting_menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()){
@@ -122,6 +95,38 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        SharedPreferences sharedPreferences=getSharedPreferences("themePre",MODE_PRIVATE);
+        int themeID=sharedPreferences.getInt("themeID",-1);
+        setTheme(themeID);
+
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar=findViewById(R.id.toolBar);
+        moduleListView=findViewById(R.id.module_list);
+
+        setSupportActionBar(toolbar);
+        mPullToRefreshView = this.findViewById(R.id.pull_to_refresh);
+        mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPullToRefreshView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPullToRefreshView.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
+        FloatingActionButton floatingActionButton=findViewById(R.id.add_modules);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,AddModuleActivity.class);
+                startActivity(intent);
+            }
+        });
+        moduleOpenHelper=new ModuleOpenHelper(this,"Module.db",null,2);
+
+
         super.onResume();
         this.moduleList=new ArrayList<>();
         initDatabase();
@@ -134,7 +139,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 Module temp = moduleAdapter.getItem(i);
                 int id = temp.getId();
-                Toast.makeText(MainActivity.this, "" + id, Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(MainActivity.this,ModuleChangeActivity.class);
+               Bundle bundle=new Bundle();
+               bundle.putInt("id",id);
+               intent.putExtras(bundle);
+               startActivity(intent);
             }
         });
       moduleListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -165,8 +174,11 @@ public class MainActivity extends AppCompatActivity {
           }
       });
 
+
     }
 
+    @Override
+    public void onBackPressed() {
 
-
+    }
 }

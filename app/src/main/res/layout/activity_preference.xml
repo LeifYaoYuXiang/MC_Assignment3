@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreferenceActivity">
+    tools:context=".PreferenceActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <com.ldoublem.loadingviewlib.LVChromeLogo
+        android:id="@+id/chrome"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:src="@drawable/blue"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"/>
+
+            <ImageView
+                android:src="@drawable/pink"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"/>
+
+            <ImageView
+                android:src="@drawable/gray"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"/>
+
+            <ImageView
+                android:src="@drawable/orange"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="0dp">
+
+            <Button
+                android:id="@+id/themeBlue"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Summer Sea(Default)"
+                android:textAlignment="center"
+                android:background="@drawable/bg_button_blue"/>
+            <Button
+                android:id="@+id/themePink"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Cute Rose"
+                android:textAlignment="center"
+                android:background="@drawable/bg_button_pink"/>
+            <Button
+                android:id="@+id/themeGray"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Silent Movie"
+                android:textAlignment="center"
+                android:background="@drawable/bg_button_gray"/>
+            <Button
+                android:id="@+id/themeOrange"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Juicy Orange"
+                android:textAlignment="center"
+                android:background="@drawable/bg_button_orange"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -2,15 +2,16 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="?button_bg" />
+            <solid android:color="#616161" />
             <corners android:radius="10dp"/>
         </shape>
     </item>
 
     <item>
         <shape>
-            <solid android:color="?button_bg_pressed"/>
+            <solid android:color="#607D8B"/>
             <corners android:radius="10dp"/>
         </shape>
     </item>
+
 </selector>
