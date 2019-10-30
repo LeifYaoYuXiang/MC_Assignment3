@@ -18,36 +18,30 @@
             android:layout_height="50dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         </android.support.v7.widget.Toolbar>
-
-        <com.yalantis.phoenix.PullToRefreshView
-            android:id="@+id/pull_to_refresh"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/module_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ListView
-                    android:id="@+id/module_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:divider="?list_divider"
-                    android:dividerHeight="1px">
-                </ListView>
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/add_modules"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="bottom|end"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/plus" />
-            </RelativeLayout>
-        </com.yalantis.phoenix.PullToRefreshView>
+                android:layout_height="wrap_content"
+                android:divider="?list_divider"
+                android:dividerHeight="1px">
+            </ListView>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/add_modules"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|end"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/plus" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

@@ -4,16 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-    <Button
+    <TextView
+        android:id="@+id/widget_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello"/>
+        android:text="None Modules Are Showed Here"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
     <Button
+        android:id="@+id/widget_open"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="World"/>
+        android:text="Open App"
+        android:textAlignment="center" />
 
 
 </LinearLayout>

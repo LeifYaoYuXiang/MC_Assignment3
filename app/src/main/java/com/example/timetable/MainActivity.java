@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private PullToRefreshView mPullToRefreshView;
     private ListView moduleListView;
     private ModuleOpenHelper moduleOpenHelper;
     private List<Integer> idList=new ArrayList<>();
@@ -104,18 +103,7 @@ public class MainActivity extends AppCompatActivity {
         moduleListView=findViewById(R.id.module_list);
 
         setSupportActionBar(toolbar);
-        mPullToRefreshView = this.findViewById(R.id.pull_to_refresh);
-        mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPullToRefreshView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mPullToRefreshView.setRefreshing(false);
-                    }
-                }, 2000);
-            }
-        });
+
         FloatingActionButton floatingActionButton=findViewById(R.id.add_modules);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

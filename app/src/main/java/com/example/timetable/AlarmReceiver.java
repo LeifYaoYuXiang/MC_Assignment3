@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.widget.Toast;
 
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -13,11 +14,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if("RING".equals(intent.getAction())){
             NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            NotificationCompat.Builder notificationBuider=new NotificationCompat.Builder(context)
-                    .setContentTitle("There will be one course recently!")
+            NotificationCompat.Builder notificationBuilder=new NotificationCompat.Builder(context)
+                    .setContentText("There will be one course recently!")
+                    .setContentTitle("Module")
                     .setPriority(NotificationCompat.PRIORITY_MAX)
+                    .setSmallIcon(R.drawable.watch_out)
                     .setDefaults(Notification.DEFAULT_ALL);
-            manager.notify(Notification.FLAG_AUTO_CANCEL,notificationBuider.build());
+            manager.notify(Notification.FLAG_AUTO_CANCEL,notificationBuilder.build());
         }
     }
 }

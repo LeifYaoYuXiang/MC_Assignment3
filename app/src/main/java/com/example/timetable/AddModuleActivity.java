@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -56,6 +57,7 @@ public class AddModuleActivity extends AppCompatActivity {
     private int earlierTime = -1;
     private int daySet=0;
     private AlarmManager alarmManager;
+    private Intent jumpIntent;
 
 
     @Override
@@ -67,6 +69,9 @@ public class AddModuleActivity extends AppCompatActivity {
         setTheme(themeID);
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        jumpIntent=new Intent(this,AlarmReceiver.class);
+        jumpIntent.setAction("RING");
+
         setContentView(R.layout.activity_add_module);
         startTime = findViewById(R.id.startTime);
         endTime = findViewById(R.id.endTime);
@@ -234,18 +239,22 @@ public class AddModuleActivity extends AppCompatActivity {
                     contentValues.put("ModuleLocation", moduleLocation);
                     contentValues.put("ModuleComment", moduleComment);
                     if (notification) {
+                        Log.d("TAG","READY TO ALARM");
                         contentValues.put("Notification", 1);
                         int notificationHour = startHour;
                         int notificationMinute = startMinute - earlierTime;
+                        if(notificationMinute<0){
+                            notificationHour--;
+                            notificationMinute=notificationMinute+60;
+                        }
+                        Log.d("TAG",notificationHour+"--"+notificationMinute+"--"+startMinute+"---"+earlierTime);
+
                         Calendar c=Calendar.getInstance();
                         c.set(Calendar.HOUR_OF_DAY,notificationHour);
                         c.set(Calendar.MINUTE,notificationMinute);
-                        //时间一到，发送广播（闹钟响了）
-                        Intent intent=new Intent();
-                        intent.setAction("RING");
-                        //将来时态的跳转
-                        PendingIntent pendingIntent=PendingIntent.getBroadcast(AddModuleActivity.this,0x101,intent,0);
-                        alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis()+differenceInWeekdays(),pendingIntent);
+                        c.set(Calendar.SECOND,0);
+                        PendingIntent pendingIntent=PendingIntent.getBroadcast(AddModuleActivity.this,0x101,jumpIntent,0);
+                        alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
                     } else {
                         contentValues.put("Notification", 0);
                     }
@@ -303,20 +312,6 @@ public class AddModuleActivity extends AppCompatActivity {
     }
 
 
-    public int differenceInWeekdays() {
-        int weekdayNow=Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-2;
-        if(weekdayNow<0){
-            weekdayNow=6;
-        }
-        int weekSet=daySet;
-        if(weekdayNow<weekSet){
-            return (weekSet-weekdayNow)*24*60*60*1000;
-        }else if(weekdayNow>weekSet){
-            return (weekSet-weekdayNow)*24*60*60*1000+7*24*60*60*1000;
-        }else{
-            return 0;
-        }
 
-    }
 
 }
