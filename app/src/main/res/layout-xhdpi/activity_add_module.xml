@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddModuleActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:src="@drawable/code"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/name"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/lecture_practical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/week"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/start_time"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/end_time"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/room"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"/>
+
+            <ImageView
+                android:src="@drawable/comments"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"/>
+
+            <ImageView
+                android:src="@drawable/notification"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="35dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/codeInformation"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:hint="Module Code"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_edittext"/>
+
+            <EditText
+                android:id="@+id/nameInformation"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:hint="Module Name"
+                android:background="@drawable/bg_edittext"/>
+
+            <ToggleButton
+                android:id="@+id/practical_lecture"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:textOn="Lecture"
+                android:textOff="Practical"
+                android:background="@drawable/bg_button"/>
+
+            <Spinner
+                android:id="@+id/chooseWeek"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:entries="@array/week"></Spinner>
+
+            <Button
+                android:id="@+id/startTime"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="choose START TIME"
+                android:background="@drawable/bg_button"/>
+
+
+            <Button
+                android:id="@+id/endTime"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="choose END TIME"
+                android:background="@drawable/bg_button"/>
+
+            <EditText
+                android:id="@+id/locationsInformation"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:hint="Module Location"
+                android:background="@drawable/bg_edittext"/>
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_edittext"
+                android:layout_marginTop="10dp"
+                android:hint="Comment"/>
+
+            <ToggleButton
+                android:id="@+id/notification"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:textOn="Notification ON"
+                android:textOff="Notification OFF"
+                android:background="@drawable/bg_button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+    <Button
+        android:id="@+id/saveModule"
+        android:text="Save this Module"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_button"
+    />
+
+
+
+
+
+</LinearLayout>
